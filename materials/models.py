@@ -14,7 +14,7 @@ class Course(models.Model):
         null=True,
     )
     course_picture = models.ImageField(
-        upload_to="lessons/photo",
+        upload_to="materials/photo",
         blank=True,
         null=True,
         verbose_name="Превью курса",
@@ -39,7 +39,7 @@ class Lesson(models.Model):
         null=True,
     )
     lesson_picture = models.ImageField(
-        upload_to="lessons/photo",
+        upload_to="materials/photo",
         blank=True,
         null=True,
         verbose_name="Превью урока",
@@ -65,6 +65,3 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
-
-
-
