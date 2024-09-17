@@ -52,7 +52,7 @@ class Lesson(models.Model):
         help_text="Введите название курса",
         null=True,
         blank=True,
-        related_name="course",
+        related_name="lessons",
     )
     video_link = models.URLField(
         max_length=300,
