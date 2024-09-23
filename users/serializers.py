@@ -11,15 +11,11 @@ class PaymentSerializer(ModelSerializer):
 
 
 class UserSerializer(ModelSerializer):
-    payment_history = SerializerMethodField()
-
-    def get_payment_history(self, obj):
-        payments = obj.payment_set.all()
-        return PaymentSerializer(payments, many=True).data
-
+    payment_history = PaymentSerializer(many=True)
+    
     class Meta:
         model = User
-        fields = ('username', 'email', 'payment_history',)
+        fields = ('email', 'city', 'payment_history',)
         
 
 
