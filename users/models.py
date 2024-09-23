@@ -69,12 +69,13 @@ class Payment(models.Model):
     )
     payment_type = models.BooleanField(
         default=True,
-        verbose_name='Тип оплаты (если True - безнал, Если False - наличка)'
+        verbose_name='Тип оплаты (безнал - True, наличные - False)'
     )
 
     class Meta:
         verbose_name = "Платеж"
         verbose_name_plural = "Платежи"
+        ordering = ['-date']
 
     def __str__(self):
         return f'Пользователь {self.user} оплатил {self.amount}'
