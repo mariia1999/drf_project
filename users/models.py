@@ -37,6 +37,10 @@ class User(AbstractUser):
 
 
 class Payment(models.Model):
+    payment_choices = {
+        'Cash': "наличные",
+        'Transfer': "перевод ",
+    }
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -67,9 +71,10 @@ class Payment(models.Model):
         max_digits=10,
         decimal_places=2
     )
-    payment_type = models.BooleanField(
-        default=True,
-        verbose_name='Тип оплаты (безнал - True, наличные - False)'
+    payment_type = models.CharField(
+        max_length=50,
+        choices=payment_choices,
+        verbose_name='тип оплаты'
     )
 
     class Meta:

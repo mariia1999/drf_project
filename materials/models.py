@@ -20,6 +20,13 @@ class Course(models.Model):
         verbose_name="Превью курса",
         help_text="Загрузите картинку курса",
     )
+    student = models.ForeignKey(
+        'users.User',
+        on_delete=models.CASCADE,
+        verbose_name='студент курса',
+        blank=True,
+        null=True
+    )
 
     class Meta:
         verbose_name = "Курс"
@@ -60,6 +67,13 @@ class Lesson(models.Model):
         help_text="Добавьте ссылку на видео",
         null=True,
         blank=True,
+    )
+    student = models.ForeignKey(
+        'users.User',
+        on_delete=models.CASCADE,
+        verbose_name='студент урока',
+        blank=True,
+        null=True
     )
 
     class Meta:
